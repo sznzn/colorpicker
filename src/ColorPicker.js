@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 
+const colorNames = ['Aquamarine', 'BlueViolet', 'Chartreuse', 'CornflowerBlue', 'Thistle', 'SpringGreen', 'SaddleBrown', 'PapayaWhip', 'MistyRose'];
+
 export default function ColorPicker(){
-    const [color, setColor] = useState("lightgreen");
+    const [color, setColor] = useState("Tomato");
     const divStyle = {backgroundColor: color};
 
     const handleButtonClick = (event) =>{
@@ -12,10 +14,11 @@ export default function ColorPicker(){
         <div style={divStyle} className="container">
             <h1>The color is {color}</h1>
             
-            <button onClick = {handleButtonClick}>Aquamarine</button>
-            <button onClick = {handleButtonClick}>BlueViolet</button>
-            <button onClick = {handleButtonClick}>Chartreuse</button>
-            <button onClick = {handleButtonClick}>CornflowerBlue</button>
+            {colorNames.map((colorName)=>(
+                <button onClick={handleButtonClick}>
+                    {colorName}
+                </button>
+            ))}
             
         </div>
     )
